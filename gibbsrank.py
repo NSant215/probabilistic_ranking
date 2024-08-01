@@ -40,7 +40,7 @@ def gibbs_sample(G, M, num_iters):
             summed[j,g], summed[k,g] = 1, -1          
             iS[k,k], iS[j,j] = iS[k,k] + 1, iS[j,j] + 1
             iS[k,j], iS[j,k] = iS[k,j] - 1, iS[j,k] - 1
-        m = np.matmul(summed, t)
+        m = np.matmul(summed, t) # vector of skill differences weighted by performance differences.
 
         # Posterior precision matrix
         iSS = iS + np.diag(1. / pv)

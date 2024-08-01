@@ -28,8 +28,8 @@ def eprank(G, M, num_iters):
     Ps_array = np.zeros((M, num_iters))
 
     # initialize matrices of game to skill messages, means and precisions
-    Mgs = np.zeros((N, 2))
-    Pgs = np.zeros((N, 2))
+    Mgs = np.zeros((N, 2)) # for each game, an estimation of the skill mean of each player
+    Pgs = np.zeros((N, 2)) # for each game, an estimation of the skill precision of each player
 
     # initialize matrices of game to skill to game messages, means and precisions
     Msg = np.zeros((N, 2))
@@ -39,7 +39,7 @@ def eprank(G, M, num_iters):
         for p in range(M):  # compute marginal player skills
             games_won = np.where(G[:, 0] == p)[0]
             games_lost = np.where(G[:, 1] == p)[0]
-            Ps[p] = 1./pv + np.sum(Pgs[games_won, 0]) + np.sum(Pgs[games_lost, 1])
+            Ps[p] = 1./pv + np.sum(Pgs[games_won, 0]) + np.sum(Pgs[games_lost, 1]) # summing all precisions
             Ms[p] = np.sum(Pgs[games_won, 0] * Mgs[games_won, 0]) / Ps[p] \
                 + np.sum(Pgs[games_lost, 1] * Mgs[games_lost, 1]) / Ps[p]
 
