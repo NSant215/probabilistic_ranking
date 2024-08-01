@@ -25,4 +25,7 @@ Expectation Propagation is a method for approximating the marginal distribution 
 2. Iterate through the variables: In each iteration, we use message passing of the marginal Gaussian distributions to update the marginal mean and precision of each player's skill.
 3. Repeat the iterations: We repeat the iterations for a certain number of times or until convergence is reached. Convergence means that the estimated values of the variables stabilize and do not change significantly with further iterations.
 
-## Task Three: 
+## Tasks 3 to 5:
+
+Tasks 3 to 5 are about using the Gibbs sampling EP techniques to compute different probabilities and explaining their results and reasons for differences.
+
